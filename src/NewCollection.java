@@ -36,15 +36,16 @@ public class NewCollection implements CustomCollection {
         if (this.head == null) {
             this.head = newLLString;
             this.tail = newLLString;
-            this.tail.setTail(true);
         } else {
-            LLString oldHead = this.head;
-            this.head = newLLString;
-            this.head.setNext(oldHead);
-            this.head.setPrevious(this.tail);
-            oldHead.setPrevious(this.head);
+            LLString oldTail = this.tail;
+            this.tail = newLLString;
             this.tail.setNext(this.head);
+            this.head.setPrevious(this.tail);
+            oldTail.setNext(this.tail);
+            oldTail.setTail(false);
+            oldTail.setPrevious(this.head);
         }
+        this.tail.setTail(true);
         return true;
     }
 

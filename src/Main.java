@@ -68,13 +68,15 @@ public class Main {
         System.out.println("boolean compare(NewCollection coll)");
 
         NewCollection collDifferent = new NewCollection();
+        collDifferent.add("One");
         collDifferent.addAll(collOne);
+        collDifferent.delete("Three");
         NewCollection collEquals = new NewCollection();
-        collEquals.addAll(collDifferent);
-
+        collEquals.addAll(collOne);
 
         System.out.println("Different collections: " + collOne.compare(collDifferent));
         System.out.println("Same Collections: " + collEquals.compare(collOne));
+        System.out.println("--------------------");
 
     }
 
